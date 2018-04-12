@@ -1,4 +1,6 @@
 import Vapor
+import Fluent
+import FluentSQLite
 
 /// Called before your application initializes.
 ///
@@ -8,10 +10,27 @@ public func configure(
     _ env: inout Environment,
     _ services: inout Services
 ) throws {
+    
     // Register routes to the router
     let router = EngineRouter.default()
     try routes(router)
     services.register(router, as: Router.self)
 
-    // Configure the rest of your application here
+    //Configure the directory config - so we can use the present working directory
+    let directoryConfig = DirectoryConfig.detect()
+    services.register(directoryConfig)
+    
+    //Configure fluent - creating a database so we can persist data
+    try services.register(FluentSQLiteProvider())
+    
+    var databaseConfig = DatabaseConfig()
+    let db = try SQLiteDatabase(storage: .file(path: "\(directoryConfig.workDir)projects.db"))
+    databaseConfig.add(database: db, as: .sqlite)
+    services.register(databaseConfig)
+    
+    //Configure the migration
+    var migrationConfig = MigrationConfig()
+    migrationConfig.add(model: Project.self, database: .sqlite)
+    migrationConfig.add(model: Group.self, database: .sqlite)
+    services.register(migrationConfig)
 }
