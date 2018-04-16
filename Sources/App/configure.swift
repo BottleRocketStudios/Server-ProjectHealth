@@ -38,4 +38,9 @@ public func configure(
     
     //Configure authentication provisions
     try services.register(AuthenticationProvider())
+    
+    //Configure middlewares
+    var middlewareConfig = MiddlewareConfig()
+    middlewareConfig.use(ErrorMiddleware.self)
+    services.register(middlewareConfig)
 }
