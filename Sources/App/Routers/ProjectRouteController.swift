@@ -7,14 +7,18 @@
 
 import Foundation
 import Vapor
+import Authentication
+import Crypto
 
 class ProjectRouteController: RouteCollection {
     
     func boot(router: Router) throws {
         let group = router.grouped("api", "projects")
-        
         group.get(use: retrieveAllProjectsHandler)
-        group.post(use: addNewProjectHandler)
+    
+        let basicAuthMiddleware = User.basicAuthMiddleware(using: BCrypt)
+        let basicAuthGroup = group.grouped(basicAuthMiddleware)
+        basicAuthGroup.post(use: addNewProjectHandler)
     }
 }
 
