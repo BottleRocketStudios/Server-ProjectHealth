@@ -18,11 +18,15 @@ struct Project: Content, SQLiteUUIDModel, Migration {
     private var active: Int
     var group: UUID?
     
+    //MARK: Interface
     var isActive: Bool { return active == 1 }
     
-    func inGroup(with id: UUID) -> Project {
+    func inGroup(with id: UUID?) -> Project {
         var copy = self
         copy.group = id
         return copy
     }
 }
+
+//MARK: Parameter
+extension Project: Parameter { }

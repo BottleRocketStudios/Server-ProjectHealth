@@ -20,3 +20,6 @@ struct Group: Content, SQLiteUUIDModel, Migration  {
         return children(\.group)
     }
 }
+
+//MARK: Parameter
+extension Group: Parameter { }
