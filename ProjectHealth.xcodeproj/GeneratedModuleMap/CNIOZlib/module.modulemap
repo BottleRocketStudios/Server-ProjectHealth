@@ -1,4 +1,4 @@
 module CNIOZlib {
-    umbrella "/Users/will.mcginty/Developer/Bottle Rocket/Open Source/Server-ProjectHealth/.build/checkouts/swift-nio.git-3108475404973543938/Sources/CNIOZlib/include"
+    umbrella "/Users/willmcginty/Developer/Open Source/Server-ProjectHealth/.build/checkouts/swift-nio.git-3108475404973543938/Sources/CNIOZlib/include"
     export *
 }

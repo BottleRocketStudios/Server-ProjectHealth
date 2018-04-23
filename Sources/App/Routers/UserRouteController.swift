@@ -28,7 +28,7 @@ private extension UserRouteController {
                 guard existingUser == nil else { throw Abort(.badRequest) }
                 try newUser.validate()
                 
-                guard let hashed = String(data: try request.make(BCryptDigest.self).hash(newUser.password), encoding: .utf8) else { throw Abort(.internalServerError) }
+                let hashed = try request.make(BCryptDigest.self).hash(newUser.password)
                 return User(email: newUser.email, password: hashed).save(on: request).transform(to: .created)
             }
         }
