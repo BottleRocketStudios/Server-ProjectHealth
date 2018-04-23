@@ -19,7 +19,25 @@ struct Group: Content, SQLiteUUIDModel, Migration  {
     var projects: Children<Group, Project> {
         return children(\.groupID)
     }
+    
+    func modifying(id: UUID?) -> Group {
+        var copy = self
+        copy.id = id
+        return copy
+    }
+    
+    func patched(with patch: GroupPatch) -> Group {
+        return Group(id: patch.id ?? id, name: patch.name ?? name)
+    }
 }
 
 //MARK: Parameter
 extension Group: Parameter { }
+
+//MARK: PATCH Support
+struct GroupPatch: Content {
+    
+    //MARK: Properties
+    var id: UUID?
+    var name: String?
+}

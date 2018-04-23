@@ -19,7 +19,9 @@ class GroupRouteController: RouteCollection {
         
         let basicAuthMiddleware = User.basicAuthMiddleware(using: BCrypt)
         let basicAuthGroup = group.grouped(basicAuthMiddleware)
-        basicAuthGroup.post(use: addNewGroupHandler)
+        basicAuthGroup.post(use: addGroupHandler)
+        basicAuthGroup.patch(Group.parameter, use: updateGroupHandler)
+        basicAuthGroup.delete(Group.parameter, use: deleteGroupHandler)
         basicAuthGroup.post(Group.parameter, use: addProjectToGroupHandler)
     }
 }
@@ -37,8 +39,18 @@ private extension GroupRouteController {
         }
     }
     
-    func addNewGroupHandler(_ request: Request) throws -> Future<HTTPResponseStatus> {
+    func addGroupHandler(_ request: Request) throws -> Future<HTTPResponseStatus> {
         return try request.content.decode(Group.self).save(on: request).transform(to: .created)
+    }
+    
+    func updateGroupHandler(_ request: Request) throws -> Future<HTTPResponseStatus> {
+        return try flatMap(to: HTTPResponseStatus.self, request.parameters.next(Group.self), request.content.decode(GroupPatch.self)) { current, update in
+            return current.patched(with: update).update(on: request).transform(to: .ok)
+        }
+    }
+
+    func deleteGroupHandler(_ request: Request) throws -> Future<HTTPResponseStatus> {
+        return try request.parameters.next(Group.self).delete(on: request).transform(to: .noContent)
     }
     
     func addProjectToGroupHandler(_ request: Request) throws -> Future<HTTPResponseStatus> {
