@@ -25,7 +25,7 @@ private extension UserRouteController {
     func registerUserHandler(_ request: Request) throws -> Future<HTTPResponseStatus> {
         return try request.content.decode(User.self).flatMap(to: HTTPResponseStatus.self) { newUser in
             return try User.query(on: request).filter(\.email == newUser.email).first().flatMap(to: HTTPResponseStatus.self) { existingUser in
-                guard existingUser == nil else { throw Abort(.badRequest) }
+                guard existingUser == nil else { throw Abort(.badRequest) /* User already exists */ }
                 try newUser.validate()
                 
                 let hashed = try request.make(BCryptDigest.self).hash(newUser.password)

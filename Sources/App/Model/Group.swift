@@ -17,7 +17,7 @@ struct Group: Content, SQLiteUUIDModel, Migration  {
     var name: String
     
     var projects: Children<Group, Project> {
-        return children(\.group)
+        return children(\.groupID)
     }
 }
 

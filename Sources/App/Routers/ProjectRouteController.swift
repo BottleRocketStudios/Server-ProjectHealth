@@ -29,7 +29,7 @@ private extension ProjectRouteController {
         return Project.query(on: request).all()
     }
     
-    func addNewProjectHandler(_ request: Request) throws -> Future<Project> {
-        return try request.content.decode(Project.self).save(on: request)
+    func addNewProjectHandler(_ request: Request) throws -> Future<HTTPResponseStatus> {
+        return try request.content.decode(Project.self).save(on: request).transform(to: .created)
     }
 }

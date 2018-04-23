@@ -28,7 +28,6 @@ class GroupRouteController: RouteCollection {
 private extension GroupRouteController {
     
     func retrieveAllGroupsHandler(_ request: Request) throws -> Future<[Group]> {
-        //TODO: Should the list of groups also return the list of projects inside that group? Or should a call to /groups/<id> be required for that?
         return Group.query(on: request).all()
     }
     
@@ -38,14 +37,14 @@ private extension GroupRouteController {
         }
     }
     
-    func addNewGroupHandler(_ request: Request) throws -> Future<Group> {
-        return try request.content.decode(Group.self).save(on: request)
+    func addNewGroupHandler(_ request: Request) throws -> Future<HTTPResponseStatus> {
+        return try request.content.decode(Group.self).save(on: request).transform(to: .created)
     }
     
-    func addProjectToGroupHandler(_ request: Request) throws -> Future<Project> {
-        return try flatMap(to: Project.self, request.parameters.next(Group.self), try request.content.decode(Project.self)) { matchingGroup, project in
+    func addProjectToGroupHandler(_ request: Request) throws -> Future<HTTPResponseStatus> {
+        return try flatMap(to: HTTPResponseStatus.self, request.parameters.next(Group.self), try request.content.decode(Project.self)) { matchingGroup, project in
             let modified = project.inGroup(with: matchingGroup.id)
-            return modified.save(on: request)
+            return modified.save(on: request).transform(to: .created)
         }
     }
 }

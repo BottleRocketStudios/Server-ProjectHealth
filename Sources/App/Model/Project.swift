@@ -16,14 +16,14 @@ struct Project: Content, SQLiteUUIDModel, Migration {
     var id: UUID?
     var name: String
     private var active: Int
-    var group: UUID?
+    var groupID: UUID?
     
     //MARK: Interface
     var isActive: Bool { return active == 1 }
     
     func inGroup(with id: UUID?) -> Project {
         var copy = self
-        copy.group = id
+        copy.groupID = id
         return copy
     }
 }
