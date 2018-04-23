@@ -15,12 +15,12 @@ class GroupRouteController: RouteCollection {
     func boot(router: Router) throws {
         let group = router.grouped("api", "groups")
         group.get(use: retrieveAllGroupsHandler)
-        group.get(UUID.parameter, use: retrieveGroupHandler)
+        group.get(Group.parameter, use: retrieveGroupHandler)
         
         let basicAuthMiddleware = User.basicAuthMiddleware(using: BCrypt)
         let basicAuthGroup = group.grouped(basicAuthMiddleware)
         basicAuthGroup.post(use: addNewGroupHandler)
-        basicAuthGroup.post(UUID.parameter, use: addProjectToGroupHandler)
+        basicAuthGroup.post(Group.parameter, use: addProjectToGroupHandler)
     }
 }
 
