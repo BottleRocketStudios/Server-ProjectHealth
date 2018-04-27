@@ -21,7 +21,7 @@ struct Project: Content, SQLiteUUIDModel, Migration {
     //MARK: Interface
     var isActive: Bool { return active == 1 }
     
-    var coverageReports: Children<Project, Report> {
+    var coverageReports: Children<Project, CoverageReport> {
         return children(\.projectID)
     }
     
