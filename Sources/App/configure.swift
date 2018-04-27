@@ -24,7 +24,7 @@ public func configure(
     //Configure fluent - creating a database so we can persist data
     try services.register(FluentSQLiteProvider())
     
-    var databaseConfig = DatabaseConfig()
+    var databaseConfig = DatabasesConfig()
     let db = try SQLiteDatabase(storage: .file(path: "\(directoryConfig.workDir)projects.db"))
     databaseConfig.add(database: db, as: .sqlite)
     services.register(databaseConfig)

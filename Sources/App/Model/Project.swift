@@ -49,4 +49,8 @@ struct ProjectPatch: Content {
     var name: String?
     var active: Int?
     var groupID: UUID?
+    
+    func invalidatingGroupID() -> ProjectPatch {
+        return ProjectPatch(id: id, name: name, active: active, groupID: nil)
+    }
 }

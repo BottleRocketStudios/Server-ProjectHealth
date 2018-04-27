@@ -37,8 +37,17 @@ private extension ProjectRouteController {
     
     func updateProjectHandler(_ request: Request) throws -> Future<HTTPResponseStatus> {
         return try flatMap(to: HTTPResponseStatus.self, request.parameters.next(Project.self), request.content.decode(ProjectPatch.self)) { current, update in
-            //TODO: Should validation of the optionally passed in groupID occur?
-            return current.patched(with: update).update(on: request).transform(to: .ok)
+            
+            guard let groupID = update.groupID else {
+                //If the groupID is not being updated, we don't need to validate that new UUID
+                return current.patched(with: update).update(on: request).transform(to: .ok)
+            }
+            
+            //If the groupID is being changed, we want to validate it before assigning
+            return try Group.find(groupID, on: request).flatMap(to: HTTPResponseStatus.self) { match in
+                let patch: ProjectPatch = match == nil ? update.invalidatingGroupID() : update
+                return current.patched(with: patch).update(on: request).transform(to: .ok)
+            }
         }
     }
     
