@@ -37,7 +37,6 @@ private extension ProjectRouteController {
     
     func updateProjectHandler(_ request: Request) throws -> Future<HTTPResponseStatus> {
         return try flatMap(to: HTTPResponseStatus.self, request.parameters.next(Project.self), request.content.decode(ProjectPatch.self)) { current, update in
-            
             guard let groupID = update.groupID else {
                 //If the groupID is not being updated, we don't need to validate that new UUID
                 return current.patched(with: update).update(on: request).transform(to: .ok)

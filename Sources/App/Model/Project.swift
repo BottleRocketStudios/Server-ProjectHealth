@@ -50,6 +50,7 @@ struct ProjectPatch: Content {
     var active: Int?
     var groupID: UUID?
     
+    //MARK: Interface
     func invalidatingGroupID() -> ProjectPatch {
         return ProjectPatch(id: id, name: name, active: active, groupID: nil)
     }

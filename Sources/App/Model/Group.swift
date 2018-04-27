@@ -20,6 +20,7 @@ struct Group: Content, SQLiteUUIDModel, Migration  {
         return children(\.groupID)
     }
     
+    //MARK: Interface
     func modifying(id: UUID?) -> Group {
         var copy = self
         copy.id = id
