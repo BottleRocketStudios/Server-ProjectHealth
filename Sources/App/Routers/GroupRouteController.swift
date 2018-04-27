@@ -19,10 +19,10 @@ class GroupRouteController: RouteCollection {
         
         let basicAuthMiddleware = User.basicAuthMiddleware(using: BCrypt)
         let basicAuthGroup = group.grouped(basicAuthMiddleware)
-        basicAuthGroup.post(use: addGroupHandler)
-        basicAuthGroup.patch(Group.parameter, use: updateGroupHandler)
+        basicAuthGroup.post(Group.self, use: addGroupHandler)
+        basicAuthGroup.patch(GroupPatch.self, at: Group.parameter, use: updateGroupHandler)
         basicAuthGroup.delete(Group.parameter, use: deleteGroupHandler)
-        basicAuthGroup.post(Group.parameter, use: addProjectToGroupHandler)
+        basicAuthGroup.post(Project.self, at: Group.parameter, use: addProjectToGroupHandler)
     }
 }
 
@@ -39,12 +39,12 @@ private extension GroupRouteController {
         }
     }
     
-    func addGroupHandler(_ request: Request) throws -> Future<HTTPResponseStatus> {
-        return try request.content.decode(Group.self).save(on: request).transform(to: .created)
+    func addGroupHandler(_ request: Request, group: Group) throws -> Future<HTTPResponseStatus> {
+        return group.save(on: request).transform(to: .created)
     }
     
-    func updateGroupHandler(_ request: Request) throws -> Future<HTTPResponseStatus> {
-        return try flatMap(to: HTTPResponseStatus.self, request.parameters.next(Group.self), request.content.decode(GroupPatch.self)) { current, update in
+    func updateGroupHandler(_ request: Request, update: GroupPatch) throws -> Future<HTTPResponseStatus> {
+        return try request.parameters.next(Group.self).flatMap(to: HTTPResponseStatus.self) { current in
             return current.patched(with: update).update(on: request).transform(to: .ok)
         }
     }
@@ -53,8 +53,8 @@ private extension GroupRouteController {
         return try request.parameters.next(Group.self).delete(on: request).transform(to: .noContent)
     }
     
-    func addProjectToGroupHandler(_ request: Request) throws -> Future<HTTPResponseStatus> {
-        return try flatMap(to: HTTPResponseStatus.self, request.parameters.next(Group.self), try request.content.decode(Project.self)) { matchingGroup, project in
+    func addProjectToGroupHandler(_ request: Request, project: Project) throws -> Future<HTTPResponseStatus> {
+        return try request.parameters.next(Group.self).flatMap(to: HTTPResponseStatus.self) { matchingGroup in
             let modified = project.inGroup(with: matchingGroup.id)
             return modified.save(on: request).transform(to: .created)
         }

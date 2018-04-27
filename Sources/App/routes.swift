@@ -8,7 +8,8 @@ public func routes(_ router: Router) throws {
     
     let routers: [RouteCollection] = [ProjectRouteController(),
                                       GroupRouteController(),
-                                      UserRouteController()]
+                                      UserRouteController(),
+                                      CoverageRouteController()]
     
     try routers.forEach { try router.register(collection: $0) }    
 }

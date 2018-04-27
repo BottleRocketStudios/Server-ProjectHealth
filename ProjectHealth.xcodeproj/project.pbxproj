@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		B47D77002092B1C6002ACF09 /* CoverageRouteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D76FF2092B1C6002ACF09 /* CoverageRouteController.swift */; };
+		B47D77022092B277002ACF09 /* CoverageReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D77012092B277002ACF09 /* CoverageReport.swift */; };
 		OBJ_1047 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* AppTests.swift */; };
 		OBJ_1049 /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "ProjectHealth::App::Product" /* App.framework */; };
 		OBJ_1050 /* Authentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Auth::Authentication::Product" /* Authentication.framework */; };
@@ -5166,6 +5168,8 @@
 
 /* Begin PBXFileReference section */
 		"Auth::Authentication::Product" /* Authentication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Authentication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B47D76FF2092B1C6002ACF09 /* CoverageRouteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverageRouteController.swift; sourceTree = "<group>"; };
+		B47D77012092B277002ACF09 /* CoverageReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverageReport.swift; sourceTree = "<group>"; };
 		"Console::Command::Product" /* Command.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Command.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Console::Product" /* Console.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Console.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Logging::Product" /* Logging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Logging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -6808,6 +6812,7 @@
 				OBJ_12 /* Group.swift */,
 				OBJ_13 /* Project.swift */,
 				OBJ_14 /* User.swift */,
+				B47D77012092B277002ACF09 /* CoverageReport.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -6925,6 +6930,7 @@
 				OBJ_16 /* GroupRouteController.swift */,
 				OBJ_17 /* ProjectRouteController.swift */,
 				OBJ_18 /* UserRouteController.swift */,
+				B47D76FF2092B1C6002ACF09 /* CoverageRouteController.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -11824,7 +11830,9 @@
 				OBJ_902 /* Validator+BREmail.swift in Sources */,
 				OBJ_903 /* Group.swift in Sources */,
 				OBJ_904 /* Project.swift in Sources */,
+				B47D77022092B277002ACF09 /* CoverageReport.swift in Sources */,
 				OBJ_905 /* User.swift in Sources */,
+				B47D77002092B1C6002ACF09 /* CoverageRouteController.swift in Sources */,
 				OBJ_906 /* GroupRouteController.swift in Sources */,
 				OBJ_907 /* ProjectRouteController.swift in Sources */,
 				OBJ_908 /* UserRouteController.swift in Sources */,

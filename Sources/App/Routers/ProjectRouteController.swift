@@ -18,8 +18,8 @@ class ProjectRouteController: RouteCollection {
     
         let basicAuthMiddleware = User.basicAuthMiddleware(using: BCrypt)
         let basicAuthGroup = group.grouped(basicAuthMiddleware)
-        basicAuthGroup.post(use: addProjectHandler)
-        basicAuthGroup.patch(Project.parameter, use: updateProjectHandler)
+        basicAuthGroup.post(Project.self, use: addProjectHandler)
+        basicAuthGroup.patch(ProjectPatch.self, at: Project.parameter, use: updateProjectHandler)
         basicAuthGroup.delete(Project.parameter, use: deleteProjectHandler)
     }
 }
@@ -31,12 +31,12 @@ private extension ProjectRouteController {
         return Project.query(on: request).all()
     }
     
-    func addProjectHandler(_ request: Request) throws -> Future<HTTPResponseStatus> {
-        return try request.content.decode(Project.self).save(on: request).transform(to: .created)
+    func addProjectHandler(_ request: Request, project: Project) throws -> Future<HTTPResponseStatus> {
+        return project.save(on: request).transform(to: .created)
     }
     
-    func updateProjectHandler(_ request: Request) throws -> Future<HTTPResponseStatus> {
-        return try flatMap(to: HTTPResponseStatus.self, request.parameters.next(Project.self), request.content.decode(ProjectPatch.self)) { current, update in
+    func updateProjectHandler(_ request: Request, update: ProjectPatch) throws -> Future<HTTPResponseStatus> {
+        return try request.parameters.next(Project.self).flatMap(to: HTTPResponseStatus.self) { current in
             guard let groupID = update.groupID else {
                 //If the groupID is not being updated, we don't need to validate that new UUID
                 return current.patched(with: update).update(on: request).transform(to: .ok)
