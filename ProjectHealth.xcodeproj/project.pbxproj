@@ -23,6 +23,10 @@
 /* Begin PBXBuildFile section */
 		B47D77002092B1C6002ACF09 /* CoverageRouteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D76FF2092B1C6002ACF09 /* CoverageRouteController.swift */; };
 		B47D77022092B277002ACF09 /* CoverageReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D77012092B277002ACF09 /* CoverageReport.swift */; };
+		B47D77042092D42C002ACF09 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D77032092D42C002ACF09 /* Report.swift */; };
+		B47D77062092D4DF002ACF09 /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D77052092D4DF002ACF09 /* Target.swift */; };
+		B47D77082092D7C9002ACF09 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D77072092D7C9002ACF09 /* File.swift */; };
+		B47D770A2092DAD9002ACF09 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D77092092DAD9002ACF09 /* Function.swift */; };
 		OBJ_1047 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* AppTests.swift */; };
 		OBJ_1049 /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "ProjectHealth::App::Product" /* App.framework */; };
 		OBJ_1050 /* Authentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Auth::Authentication::Product" /* Authentication.framework */; };
@@ -5170,6 +5174,10 @@
 		"Auth::Authentication::Product" /* Authentication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Authentication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B47D76FF2092B1C6002ACF09 /* CoverageRouteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverageRouteController.swift; sourceTree = "<group>"; };
 		B47D77012092B277002ACF09 /* CoverageReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverageReport.swift; sourceTree = "<group>"; };
+		B47D77032092D42C002ACF09 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		B47D77052092D4DF002ACF09 /* Target.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Target.swift; sourceTree = "<group>"; };
+		B47D77072092D7C9002ACF09 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		B47D77092092DAD9002ACF09 /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
 		"Console::Command::Product" /* Command.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Command.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Console::Product" /* Console.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Console.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Logging::Product" /* Logging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Logging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -6813,6 +6821,10 @@
 				OBJ_13 /* Project.swift */,
 				OBJ_14 /* User.swift */,
 				B47D77012092B277002ACF09 /* CoverageReport.swift */,
+				B47D77032092D42C002ACF09 /* Report.swift */,
+				B47D77052092D4DF002ACF09 /* Target.swift */,
+				B47D77072092D7C9002ACF09 /* File.swift */,
+				B47D77092092DAD9002ACF09 /* Function.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -11829,16 +11841,20 @@
 			files = (
 				OBJ_902 /* Validator+BREmail.swift in Sources */,
 				OBJ_903 /* Group.swift in Sources */,
+				B47D77062092D4DF002ACF09 /* Target.swift in Sources */,
 				OBJ_904 /* Project.swift in Sources */,
 				B47D77022092B277002ACF09 /* CoverageReport.swift in Sources */,
 				OBJ_905 /* User.swift in Sources */,
+				B47D77042092D42C002ACF09 /* Report.swift in Sources */,
 				B47D77002092B1C6002ACF09 /* CoverageRouteController.swift in Sources */,
 				OBJ_906 /* GroupRouteController.swift in Sources */,
 				OBJ_907 /* ProjectRouteController.swift in Sources */,
+				B47D77082092D7C9002ACF09 /* File.swift in Sources */,
 				OBJ_908 /* UserRouteController.swift in Sources */,
 				OBJ_909 /* boot.swift in Sources */,
 				OBJ_910 /* configure.swift in Sources */,
 				OBJ_911 /* routes.swift in Sources */,
+				B47D770A2092DAD9002ACF09 /* Function.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

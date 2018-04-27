@@ -34,6 +34,10 @@ public func configure(
     migrationConfig.add(model: Project.self, database: .sqlite)
     migrationConfig.add(model: Group.self, database: .sqlite)
     migrationConfig.add(model: User.self, database: .sqlite)
+    migrationConfig.add(model: Report.self, database: .sqlite)
+    migrationConfig.add(model: Target.self, database: .sqlite)
+    migrationConfig.add(model: File.self, database: .sqlite)
+    migrationConfig.add(model: Function.self, database: .sqlite)
     services.register(migrationConfig)
     
     //Configure authentication provisions

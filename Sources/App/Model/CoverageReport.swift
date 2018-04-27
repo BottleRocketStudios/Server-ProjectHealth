@@ -19,6 +19,20 @@ struct CoverageReport: Content {
     
     let targets: [Target]
     
+    func target(matching target: App.Target) -> CoverageReport.Target? {
+        return targets.first { $0.name == target.name }
+    }
+    
+    func file(matching file: App.File) -> CoverageReport.Target.File? {
+        for target in targets {
+            if let f = target.files.first(where: { file.name == $0.name }) {
+                return f
+            }
+        }
+        
+        return nil
+    }
+    
     //MARK: Target Subtype
     struct Target: Content {
         
