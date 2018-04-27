@@ -58,16 +58,6 @@ struct CoverageReport: Content {
             let lineCoverage: Double
             
             let functions: [Function]
-            
-            //MARK: Function Subtype
-            struct Function: Content {
-                let name: String
-                let coveredLines: Int
-                let executableLines: Int
-                let lineCoverage: Double
-                let lineNumber: Int
-                let executionCount: Int
-            }
         }
     }
 }

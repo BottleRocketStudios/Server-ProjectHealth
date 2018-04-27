@@ -28,6 +28,6 @@ struct Report: Content, SQLiteUUIDModel, Migration {
 //MARK: Convenience Initializer
 extension Report {
     init(coverageReport: CoverageReport) {
-        self.init(id: nil, coveredLines: coverageReport.coveredLines, executableLines: coverageReport.executableLines, lineCoverage: coverageReport.lineCoverage)
+        self.init(id: nil, coveredLines: coverageReport.coveredLines, executableLines: coverageReport.executableLines, lineCoverage: coverageReport.lineCoverage, projectID: nil)
     }
 }

@@ -27,7 +27,7 @@ struct Function: Content, SQLiteUUIDModel, Migration {
 //MARK: Convenience Initializer
 extension Function {
     
-    init(function: CoverageReport.Target.File.Function, file: File) {
+    init(function: Function, file: File) {
         self.init(id: nil, name: function.name, coveredLines: function.coveredLines, executableLines: function.executableLines, lineCoverage: function.lineCoverage, lineNumber: function.lineNumber, executionCount: function.executionCount, fileID: file.id)
     }
     
