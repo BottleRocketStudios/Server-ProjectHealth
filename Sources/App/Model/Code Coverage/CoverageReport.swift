@@ -17,10 +17,16 @@ struct CoverageReport: Content, SQLiteUUIDModel, Migration {
     let coveredLines: Int
     let executableLines: Int
     let lineCoverage: Double
-    
     var projectID: UUID?
     
+    //MARK: Interface
     var targets: Children<CoverageReport, TargetReport> {
         return children(\.reportID)
+    }
+    
+    func associating(with project: Project) -> CoverageReport {
+        var copy = self
+        copy.projectID = project.id
+        return copy
     }
 }

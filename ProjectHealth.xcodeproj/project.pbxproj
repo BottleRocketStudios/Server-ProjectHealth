@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0E28C64020938ECF00451BCA /* CoverageRecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E28C63F20938ECF00451BCA /* CoverageRecordController.swift */; };
 		OBJ_1062 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* AppTests.swift */; };
 		OBJ_1064 /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "ProjectHealth::App::Product" /* App.framework */; };
 		OBJ_1065 /* Authentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Auth::Authentication::Product" /* Authentication.framework */; };
@@ -5171,6 +5172,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E28C63F20938ECF00451BCA /* CoverageRecordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverageRecordController.swift; sourceTree = "<group>"; };
 		"Auth::Authentication::Product" /* Authentication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Authentication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Command::Product" /* Command.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Command.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Console::Product" /* Console.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Console.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -6768,6 +6770,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E28C63E20938EAF00451BCA /* Coverage */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_24 /* CoverageRouteController.swift */,
+				0E28C63F20938ECF00451BCA /* CoverageRecordController.swift */,
+			);
+			path = Coverage;
+			sourceTree = "<group>";
+		};
 		OBJ_106 /* Query */ = {
 			isa = PBXGroup;
 			children = (
@@ -7112,7 +7123,7 @@
 		OBJ_23 /* Routers */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_24 /* CoverageRouteController.swift */,
+				0E28C63E20938EAF00451BCA /* Coverage */,
 				OBJ_25 /* GroupRouteController.swift */,
 				OBJ_26 /* ProjectRouteController.swift */,
 				OBJ_27 /* UserRouteController.swift */,
@@ -11872,6 +11883,7 @@
 				OBJ_916 /* CoverageReport.swift in Sources */,
 				OBJ_917 /* TargetReport.swift in Sources */,
 				OBJ_918 /* Group.swift in Sources */,
+				0E28C64020938ECF00451BCA /* CoverageRecordController.swift in Sources */,
 				OBJ_919 /* Project.swift in Sources */,
 				OBJ_920 /* CoverageRouteController.swift in Sources */,
 				OBJ_921 /* GroupRouteController.swift in Sources */,

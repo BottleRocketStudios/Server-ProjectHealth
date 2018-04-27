@@ -31,5 +31,10 @@ struct FileReport: Content, SQLiteUUIDModel, Migration, Equatable {
         copy.targetID = target.id
         return copy
     }
+    
+    //MARK: Equatuable
+    static func ==(lhs: FileReport, rhs: FileReport) -> Bool {
+        return lhs.name == rhs.name && lhs.path == rhs.path
+    }
 }
 
