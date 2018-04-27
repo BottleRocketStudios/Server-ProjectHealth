@@ -18,6 +18,8 @@ struct Report: Content, SQLiteUUIDModel, Migration {
     let executableLines: Int
     let lineCoverage: Double
     
+    var projectID: UUID?
+    
     var targets: Children<Report, Target> {
         return children(\.reportID)
     }

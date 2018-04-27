@@ -21,6 +21,10 @@ struct Project: Content, SQLiteUUIDModel, Migration {
     //MARK: Interface
     var isActive: Bool { return active == 1 }
     
+    var coverageReports: Children<Project, Report> {
+        return children(\.projectID)
+    }
+    
     func inGroup(with id: UUID?) -> Project {
         var copy = self
         copy.groupID = id
