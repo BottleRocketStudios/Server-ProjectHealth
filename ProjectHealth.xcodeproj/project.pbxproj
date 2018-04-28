@@ -6889,9 +6889,9 @@
 			children = (
 				OBJ_15 /* CompleteReport.swift */,
 				OBJ_16 /* CoverageReport.swift */,
+				OBJ_19 /* TargetReport.swift */,
 				OBJ_17 /* FileReport.swift */,
 				OBJ_18 /* FunctionReport.swift */,
-				OBJ_19 /* TargetReport.swift */,
 			);
 			path = "Code Coverage";
 			sourceTree = "<group>";

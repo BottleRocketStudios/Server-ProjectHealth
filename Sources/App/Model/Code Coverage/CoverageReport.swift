@@ -34,6 +34,10 @@ struct CoverageReport: Content, SQLiteUUIDModel, Migration {
     }
 }
 
+//MARK: Parameter
+extension CoverageReport: Parameter { }
+
+//MARK: Timestampable
 extension CoverageReport: Timestampable {
     static var createdAtKey: WritableKeyPath<CoverageReport, Date?> = \.createdAt
     static var updatedAtKey: WritableKeyPath<CoverageReport, Date?> = \.updatedAt

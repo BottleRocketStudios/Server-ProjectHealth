@@ -38,3 +38,6 @@ struct FileReport: Content, SQLiteUUIDModel, Migration, Equatable {
     }
 }
 
+//MARK: Parameter
+extension FileReport: Parameter { }
+

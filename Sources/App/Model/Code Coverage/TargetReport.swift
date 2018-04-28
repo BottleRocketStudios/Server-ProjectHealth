@@ -37,3 +37,6 @@ struct TargetReport: Content, SQLiteUUIDModel, Migration, Equatable {
         return lhs.name == rhs.name && lhs.buildProductPath == rhs.buildProductPath
     }
 }
+
+//MARK: Parameter
+extension TargetReport: Parameter { }

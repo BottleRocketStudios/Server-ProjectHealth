@@ -30,3 +30,6 @@ struct FunctionReport: Content, SQLiteUUIDModel, Migration, Equatable {
         return copy
     }
 }
+
+//MARK: Parameter
+extension FunctionReport: Parameter { }
