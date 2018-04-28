@@ -10,6 +10,7 @@ import Vapor
 
 struct CoverageRecordController {
     
+    //MARK: Import
     static func createFunctionRecords(for targetsFuture: Future<[TargetReport]>, with completeReport: CompleteReport, on worker: Worker & DatabaseConnectable) -> Future<[[[FunctionReport]]]> {
         return targetsFuture.then { targetReports in
             return targetReports.compactMap { targetReport -> Future<[[FunctionReport]]>? in
@@ -27,6 +28,29 @@ struct CoverageRecordController {
                 return match.functions.map { $0.associating(with: file).save(on: worker) }.flatten(on: worker)
             }
             return functionsFuture.flatten(on: worker)
+        }
+    }
+    
+    //MARK: Export
+    static func completeReport(for report: CoverageReport, on worker: Worker & DatabaseConnectable) throws -> Future<CompleteReport> {
+        return try report.targets.query(on: worker).all().flatMap(to: CompleteReport.self) { targetReports in
+            return try targetReports.map { try self.completeTarget(for: $0, on: worker) }.map(to: CompleteReport.self, on: worker) { targets in
+                return CompleteReport(report: report, targets: targets)
+            }
+        }
+    }
+    
+    private static func completeTarget(for target: TargetReport, on worker: Worker & DatabaseConnectable) throws -> Future<CompleteReport.Target> {
+        return try target.files.query(on: worker).all().flatMap(to: CompleteReport.Target.self) { fileReports in
+            return try fileReports.map { try self.completeFile(for: $0, on: worker) }.map(to: CompleteReport.Target.self, on: worker) { files in
+                return CompleteReport.Target(report: target, files: files)
+            }
+        }
+    }
+    
+    private static func completeFile(for file: FileReport, on worker: DatabaseConnectable) throws -> Future<CompleteReport.Target.File> {
+        return try file.functions.query(on: worker).all().map(to: CompleteReport.Target.File.self) { functions in
+            return CompleteReport.Target.File(report: file, functions: functions)
         }
     }
 }

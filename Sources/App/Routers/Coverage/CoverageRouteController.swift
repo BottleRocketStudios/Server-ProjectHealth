@@ -17,6 +17,7 @@ class CoverageRouteController: RouteCollection {
     func boot(router: Router) throws {
         let group = router.grouped("api", "coverage")
         group.get(Project.parameter, use: getCoverageReportHandler)
+        group.get("complete", Project.parameter, use: getCompleteCoverageReportHandler)
         group.get("targets", CoverageReport.parameter, use: getTargetReportsHandler)
         group.get("files", TargetReport.parameter, use: getFileReportsHandler)
         group.get("functions", FileReport.parameter, use: getFunctionReportsHandler)
@@ -34,6 +35,12 @@ private extension CoverageRouteController {
         let page = request.getPageInformation()
         return try request.parameters.next(Project.self).flatMap(to: [CoverageReport].self) { project in
             return try CoverageReport.query(on: request).whereParent(has: project.id).sortedByCreation().paged(to: page).all()
+        }
+    }
+    
+    func getCompleteCoverageReportHandler(_ request: Request) throws -> Future<[CompleteReport]> {
+        return try getCoverageReportHandler(request).flatMap(to: [CompleteReport].self) { coverageReports in
+            return try coverageReports.map { try CoverageRecordController.completeReport(for: $0, on: request) }.flatten(on: request)
         }
     }
     
