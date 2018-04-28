@@ -31,41 +31,32 @@ class CoverageRouteController: RouteCollection {
 private extension CoverageRouteController {
     
     func getCoverageReportHandler(_ request: Request) throws -> Future<[CoverageReport]> {
-        let offset = (try? request.query.get(Int.self, at: "offset")) ?? 0
-        let maxResults = (try? request.query.get(Int.self, at: "count")) ?? .max
+        let page = request.getPageInformation()
         return try request.parameters.next(Project.self).flatMap(to: [CoverageReport].self) { project in
-            return try CoverageReport.query(on: request).filter(\.projectID == project.id).sort(\.createdAt, .ascending).range(offset..<maxResults).all()
+            return try CoverageReport.query(on: request).filter(\.projectID == project.id).sort(\.createdAt, .ascending).range(page.range).all()
         }
     }
     
     func getTargetReportsHandler(_ request: Request) throws -> Future<[TargetReport]> {
-        let offset = (try? request.query.get(Int.self, at: "offset")) ?? 0
-        let maxResults = (try? request.query.get(Int.self, at: "count")) ?? .max
-        
+        let page = request.getPageInformation()
         return try request.parameters.next(CoverageReport.self).flatMap(to: [TargetReport].self) { report in
-            return try TargetReport.query(on: request).filter(\.reportID == report.id).range(offset..<maxResults).all()
+            return try TargetReport.query(on: request).filter(\.reportID == report.id).range(page.range).all()
         }
     }
     
     func getFileReportsHandler(_ request: Request) throws -> Future<[FileReport]> {
-        let offset = (try? request.query.get(Int.self, at: "offset")) ?? 0
-        let maxResults = (try? request.query.get(Int.self, at: "count")) ?? .max
-        
+        let page = request.getPageInformation()
         return try request.parameters.next(TargetReport.self).flatMap(to: [FileReport].self) { report in
-            return try FileReport.query(on: request).filter(\.targetID == report.id).range(offset..<maxResults).all()
+            return try FileReport.query(on: request).filter(\.targetID == report.id).range(page.range).all()
         }
     }
     
     func getFunctionReportsHandler(_ request: Request) throws -> Future<[FunctionReport]> {
-        let offset = (try? request.query.get(Int.self, at: "offset")) ?? 0
-        let maxResults = (try? request.query.get(Int.self, at: "count")) ?? .max
-        
+        let page = request.getPageInformation()
         return try request.parameters.next(FileReport.self).flatMap(to: [FunctionReport].self) { report in
-            return try FunctionReport.query(on: request).filter(\.fileID == report.id).range(offset..<maxResults).all()
+            return try FunctionReport.query(on: request).filter(\.fileID == report.id).range(page.range).all()
         }
     }
-    
-    
     
     func addCoverageReportHandler(_ request: Request, completeReport: CompleteReport) throws -> Future<HTTPResponseStatus> {
         return try request.parameters.next(Project.self).flatMap(to: HTTPResponseStatus.self) { project in

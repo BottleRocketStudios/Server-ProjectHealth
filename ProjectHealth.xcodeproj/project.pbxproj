@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		B47D793F2093FB74002ACF09 /* Request+Paging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D793E2093FB74002ACF09 /* Request+Paging.swift */; };
 		OBJ_1065 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* AppTests.swift */; };
 		OBJ_1067 /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "ProjectHealth::App::Product" /* App.framework */; };
 		OBJ_1068 /* Authentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Auth::Authentication::Product" /* Authentication.framework */; };
@@ -5173,6 +5174,7 @@
 
 /* Begin PBXFileReference section */
 		"Auth::Authentication::Product" /* Authentication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Authentication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B47D793E2093FB74002ACF09 /* Request+Paging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Paging.swift"; sourceTree = "<group>"; };
 		"Console::Command::Product" /* Command.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Command.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Console::Product" /* Console.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Console.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Logging::Product" /* Logging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Logging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -9053,6 +9055,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_10 /* Validator+BREmail.swift */,
+				B47D793E2093FB74002ACF09 /* Request+Paging.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -11882,6 +11885,7 @@
 				OBJ_917 /* FileReport.swift in Sources */,
 				OBJ_918 /* FunctionReport.swift in Sources */,
 				OBJ_919 /* TargetReport.swift in Sources */,
+				B47D793F2093FB74002ACF09 /* Request+Paging.swift in Sources */,
 				OBJ_920 /* Group.swift in Sources */,
 				OBJ_921 /* Project.swift in Sources */,
 				OBJ_922 /* CoverageRecordController.swift in Sources */,
