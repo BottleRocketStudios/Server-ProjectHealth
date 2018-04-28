@@ -9,11 +9,14 @@ import Foundation
 import Vapor
 import Authentication
 import Crypto
+import Fluent
+import FluentSQLite
 
 class CoverageRouteController: RouteCollection {
     
     func boot(router: Router) throws {
         let group = router.grouped("api", "coverage")
+        group.get(Project.parameter, use: getCoverageReportHandler)
         
         let basicAuthMiddleware = User.basicAuthMiddleware(using: BCrypt)
         let basicAuthGroup = group.grouped(basicAuthMiddleware)
@@ -23,6 +26,12 @@ class CoverageRouteController: RouteCollection {
 
 //MARK: Helper
 private extension CoverageRouteController {
+    
+    func getCoverageReportHandler(_ request: Request) throws -> Future<[CoverageReport]> {
+        return try request.parameters.next(Project.self).flatMap(to: [CoverageReport].self) { project in
+            return try CoverageReport.query(on: request).filter(\.projectID == project.id).sort(\.createdAt, .ascending).all()
+        }
+    }
     
     func addCoverageReportHandler(_ request: Request, completeReport: CompleteReport) throws -> Future<HTTPResponseStatus> {
         return try request.parameters.next(Project.self).flatMap(to: HTTPResponseStatus.self) { project in

@@ -19,6 +19,9 @@ struct CoverageReport: Content, SQLiteUUIDModel, Migration {
     let lineCoverage: Double
     var projectID: UUID?
     
+    var createdAt: Date?
+    var updatedAt: Date?
+    
     //MARK: Interface
     var targets: Children<CoverageReport, TargetReport> {
         return children(\.reportID)
@@ -29,4 +32,9 @@ struct CoverageReport: Content, SQLiteUUIDModel, Migration {
         copy.projectID = project.id
         return copy
     }
+}
+
+extension CoverageReport: Timestampable {
+    static var createdAtKey: WritableKeyPath<CoverageReport, Date?> = \.createdAt
+    static var updatedAtKey: WritableKeyPath<CoverageReport, Date?> = \.updatedAt
 }

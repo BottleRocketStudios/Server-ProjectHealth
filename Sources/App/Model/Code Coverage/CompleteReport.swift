@@ -39,11 +39,11 @@ struct CompleteReport: Content {
 
     func file(matching fileReport: FileReport) -> CompleteReport.Target.File? {
         for target in targets {
-            if let f = target.files.first(where: { fileReport.name == $0.report.name }) {
-                return f
+            if let match = target.files.first(where: { fileReport.name == $0.report.name }) {
+                return match
             }
         }
-
+        
         return nil
     }
 }
