@@ -7,6 +7,7 @@
 
 import Foundation
 import Vapor
+import Fluent
 
 extension Request {
     
@@ -21,5 +22,9 @@ extension Request {
     
     func getPageInformation() -> Page {
         return Page(count: (try? query.get(Int.self, at: "count")) ?? .max, offset: (try? query.get(Int.self, at: "offset")) ?? 0)
+    }
+    
+    func getSortDirection() -> QuerySortDirection {
+        return (try? query.get(Bool.self, at: "ascending")) ?? true ? .ascending : .descending
     }
 }

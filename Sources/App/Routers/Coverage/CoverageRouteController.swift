@@ -33,8 +33,9 @@ private extension CoverageRouteController {
     
     func getCoverageReportHandler(_ request: Request) throws -> Future<[CoverageReport]> {
         let page = request.getPageInformation()
+        let direction = request.getSortDirection()
         return try request.parameters.next(Project.self).flatMap(to: [CoverageReport].self) { project in
-            return try CoverageReport.query(on: request).whereParent(has: project.id).sortedByCreation().paged(to: page).all()
+            return try CoverageReport.query(on: request).whereParent(has: project.id).sortedByCreation(in: direction).paged(to: page).all()
         }
     }
     
