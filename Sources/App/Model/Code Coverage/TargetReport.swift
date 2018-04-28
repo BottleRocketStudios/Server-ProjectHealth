@@ -40,3 +40,8 @@ struct TargetReport: Content, SQLiteUUIDModel, Migration, Equatable {
 
 //MARK: Parameter
 extension TargetReport: Parameter { }
+
+//MARK: ParentRetrievable
+extension TargetReport: ParentRetrievable {
+    static var parentIDKey: KeyPath<TargetReport, UUID?> = \.reportID
+}

@@ -42,3 +42,8 @@ extension CoverageReport: Timestampable {
     static var createdAtKey: WritableKeyPath<CoverageReport, Date?> = \.createdAt
     static var updatedAtKey: WritableKeyPath<CoverageReport, Date?> = \.updatedAt
 }
+
+//MARK: ParentRetrievable
+extension CoverageReport: ParentRetrievable {
+    static var parentIDKey: KeyPath<CoverageReport, UUID?> = \.projectID
+}

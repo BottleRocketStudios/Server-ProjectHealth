@@ -41,3 +41,7 @@ struct FileReport: Content, SQLiteUUIDModel, Migration, Equatable {
 //MARK: Parameter
 extension FileReport: Parameter { }
 
+//MARK: ParentRetrievable
+extension FileReport: ParentRetrievable {
+    static var parentIDKey: KeyPath<FileReport, UUID?> = \.targetID
+}

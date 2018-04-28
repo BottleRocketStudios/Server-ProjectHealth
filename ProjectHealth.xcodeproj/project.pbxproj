@@ -22,6 +22,8 @@
 
 /* Begin PBXBuildFile section */
 		B47D793F2093FB74002ACF09 /* Request+Paging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D793E2093FB74002ACF09 /* Request+Paging.swift */; };
+		B47D79412093FCD7002ACF09 /* QueryBuilder+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D79402093FCD7002ACF09 /* QueryBuilder+Convenience.swift */; };
+		B47D79442093FDC3002ACF09 /* ParentRetrievable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D79432093FDC3002ACF09 /* ParentRetrievable.swift */; };
 		OBJ_1065 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* AppTests.swift */; };
 		OBJ_1067 /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "ProjectHealth::App::Product" /* App.framework */; };
 		OBJ_1068 /* Authentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Auth::Authentication::Product" /* Authentication.framework */; };
@@ -5175,6 +5177,8 @@
 /* Begin PBXFileReference section */
 		"Auth::Authentication::Product" /* Authentication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Authentication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B47D793E2093FB74002ACF09 /* Request+Paging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Paging.swift"; sourceTree = "<group>"; };
+		B47D79402093FCD7002ACF09 /* QueryBuilder+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueryBuilder+Convenience.swift"; sourceTree = "<group>"; };
+		B47D79432093FDC3002ACF09 /* ParentRetrievable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentRetrievable.swift; sourceTree = "<group>"; };
 		"Console::Command::Product" /* Command.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Command.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Console::Product" /* Console.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Console.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Logging::Product" /* Logging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Logging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -6772,6 +6776,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B47D79422093FDA9002ACF09 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B47D79432093FDC3002ACF09 /* ParentRetrievable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		OBJ_108 /* Query */ = {
 			isa = PBXGroup;
 			children = (
@@ -8888,6 +8900,7 @@
 		OBJ_8 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				B47D79422093FDA9002ACF09 /* Protocols */,
 				OBJ_9 /* Extensions */,
 				OBJ_11 /* Model */,
 				OBJ_23 /* Routers */,
@@ -9056,6 +9069,7 @@
 			children = (
 				OBJ_10 /* Validator+BREmail.swift */,
 				B47D793E2093FB74002ACF09 /* Request+Paging.swift */,
+				B47D79402093FCD7002ACF09 /* QueryBuilder+Convenience.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -11879,8 +11893,10 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_913 /* Validator+BREmail.swift in Sources */,
+				B47D79412093FCD7002ACF09 /* QueryBuilder+Convenience.swift in Sources */,
 				OBJ_914 /* User.swift in Sources */,
 				OBJ_915 /* CompleteReport.swift in Sources */,
+				B47D79442093FDC3002ACF09 /* ParentRetrievable.swift in Sources */,
 				OBJ_916 /* CoverageReport.swift in Sources */,
 				OBJ_917 /* FileReport.swift in Sources */,
 				OBJ_918 /* FunctionReport.swift in Sources */,

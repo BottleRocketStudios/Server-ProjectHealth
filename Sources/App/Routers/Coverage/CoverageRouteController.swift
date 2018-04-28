@@ -33,28 +33,28 @@ private extension CoverageRouteController {
     func getCoverageReportHandler(_ request: Request) throws -> Future<[CoverageReport]> {
         let page = request.getPageInformation()
         return try request.parameters.next(Project.self).flatMap(to: [CoverageReport].self) { project in
-            return try CoverageReport.query(on: request).filter(\.projectID == project.id).sort(\.createdAt, .ascending).range(page.range).all()
+            return try CoverageReport.query(on: request).whereParent(has: project.id).sortedByCreation().paged(to: page).all()
         }
     }
     
     func getTargetReportsHandler(_ request: Request) throws -> Future<[TargetReport]> {
         let page = request.getPageInformation()
         return try request.parameters.next(CoverageReport.self).flatMap(to: [TargetReport].self) { report in
-            return try TargetReport.query(on: request).filter(\.reportID == report.id).range(page.range).all()
+            return try TargetReport.query(on: request).whereParent(has: report.id).paged(to: page).all()
         }
     }
     
     func getFileReportsHandler(_ request: Request) throws -> Future<[FileReport]> {
         let page = request.getPageInformation()
         return try request.parameters.next(TargetReport.self).flatMap(to: [FileReport].self) { report in
-            return try FileReport.query(on: request).filter(\.targetID == report.id).range(page.range).all()
+            return try FileReport.query(on: request).whereParent(has: report.id).paged(to: page).all()
         }
     }
     
     func getFunctionReportsHandler(_ request: Request) throws -> Future<[FunctionReport]> {
         let page = request.getPageInformation()
         return try request.parameters.next(FileReport.self).flatMap(to: [FunctionReport].self) { report in
-            return try FunctionReport.query(on: request).filter(\.fileID == report.id).range(page.range).all()
+            return try FunctionReport.query(on: request).whereParent(has: report.id).paged(to: page).all()
         }
     }
     
