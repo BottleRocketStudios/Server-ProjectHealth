@@ -38,6 +38,7 @@ extension User: Validatable {
     static func validations() throws -> Validations<User> {
         var validations = Validations(User.self)
         try validations.add(\.email, .count(1...) && .bottleRocketEmail)
+        try validations.add(\.password, .password)
         
         return validations
     }

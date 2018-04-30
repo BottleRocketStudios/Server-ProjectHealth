@@ -17,11 +17,8 @@ extension Bool: SQLiteDataConvertible {
     /// See `SQLiteDataConvertible.convertFromSQLiteData(_:)`
     public static func convertFromSQLiteData(_ data: SQLiteData) throws -> Bool {
         switch data {
-        case .integer(let integer):
-            let state = integer != 0 ? true : false
-            return state
-        default:
-            throw SQLiteError.inconvertibleBool
+        case .integer(let integer): return integer != 0 ? true : false
+        default: throw SQLiteError.inconvertibleBool
         }
     }
     

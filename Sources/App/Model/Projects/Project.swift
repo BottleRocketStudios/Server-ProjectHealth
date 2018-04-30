@@ -17,7 +17,7 @@ struct Project: Content, SQLiteUUIDModel, Migration {
     var name: String
     var isActive: Bool
     var groupID: UUID?
-    
+
     //MARK: Interface
     var coverageReports: Children<Project, CoverageReport> {
         return children(\.projectID)

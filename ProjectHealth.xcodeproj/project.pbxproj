@@ -25,6 +25,7 @@
 		B47D79412093FCD7002ACF09 /* QueryBuilder+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D79402093FCD7002ACF09 /* QueryBuilder+Convenience.swift */; };
 		B47D79442093FDC3002ACF09 /* ParentRetrievable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D79432093FDC3002ACF09 /* ParentRetrievable.swift */; };
 		B47D794A209694B8002ACF09 /* Bool+SQLiteDataConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D7949209694B8002ACF09 /* Bool+SQLiteDataConvertible.swift */; };
+		B47D794C2097DB8A002ACF09 /* Validator+Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D794B2097DB8A002ACF09 /* Validator+Password.swift */; };
 		OBJ_1065 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* AppTests.swift */; };
 		OBJ_1067 /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "ProjectHealth::App::Product" /* App.framework */; };
 		OBJ_1068 /* Authentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Auth::Authentication::Product" /* Authentication.framework */; };
@@ -5181,6 +5182,7 @@
 		B47D79402093FCD7002ACF09 /* QueryBuilder+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueryBuilder+Convenience.swift"; sourceTree = "<group>"; };
 		B47D79432093FDC3002ACF09 /* ParentRetrievable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentRetrievable.swift; sourceTree = "<group>"; };
 		B47D7949209694B8002ACF09 /* Bool+SQLiteDataConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+SQLiteDataConvertible.swift"; sourceTree = "<group>"; };
+		B47D794B2097DB8A002ACF09 /* Validator+Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Validator+Password.swift"; sourceTree = "<group>"; };
 		"Console::Command::Product" /* Command.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Command.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Console::Product" /* Console.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Console.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Logging::Product" /* Logging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Logging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -9069,6 +9071,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_10 /* Validator+BREmail.swift */,
+				B47D794B2097DB8A002ACF09 /* Validator+Password.swift */,
 				B47D793E2093FB74002ACF09 /* Request+Paging.swift */,
 				B47D79402093FCD7002ACF09 /* QueryBuilder+Convenience.swift */,
 				B47D7949209694B8002ACF09 /* Bool+SQLiteDataConvertible.swift */,
@@ -11903,6 +11906,7 @@
 				OBJ_917 /* FileReport.swift in Sources */,
 				OBJ_918 /* FunctionReport.swift in Sources */,
 				OBJ_919 /* TargetReport.swift in Sources */,
+				B47D794C2097DB8A002ACF09 /* Validator+Password.swift in Sources */,
 				B47D793F2093FB74002ACF09 /* Request+Paging.swift in Sources */,
 				OBJ_920 /* Group.swift in Sources */,
 				OBJ_921 /* Project.swift in Sources */,
