@@ -21,7 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		B47D793F2093FB74002ACF09 /* Request+Paging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D793E2093FB74002ACF09 /* Request+Paging.swift */; };
+		B47D793F2093FB74002ACF09 /* Request+Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D793E2093FB74002ACF09 /* Request+Query.swift */; };
 		B47D79412093FCD7002ACF09 /* QueryBuilder+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D79402093FCD7002ACF09 /* QueryBuilder+Convenience.swift */; };
 		B47D79442093FDC3002ACF09 /* ParentRetrievable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D79432093FDC3002ACF09 /* ParentRetrievable.swift */; };
 		B47D794A209694B8002ACF09 /* Bool+SQLiteDataConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D7949209694B8002ACF09 /* Bool+SQLiteDataConvertible.swift */; };
@@ -5178,7 +5178,7 @@
 
 /* Begin PBXFileReference section */
 		"Auth::Authentication::Product" /* Authentication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Authentication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B47D793E2093FB74002ACF09 /* Request+Paging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Paging.swift"; sourceTree = "<group>"; };
+		B47D793E2093FB74002ACF09 /* Request+Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Query.swift"; sourceTree = "<group>"; };
 		B47D79402093FCD7002ACF09 /* QueryBuilder+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueryBuilder+Convenience.swift"; sourceTree = "<group>"; };
 		B47D79432093FDC3002ACF09 /* ParentRetrievable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentRetrievable.swift; sourceTree = "<group>"; };
 		B47D7949209694B8002ACF09 /* Bool+SQLiteDataConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+SQLiteDataConvertible.swift"; sourceTree = "<group>"; };
@@ -6786,6 +6786,15 @@
 				B47D79432093FDC3002ACF09 /* ParentRetrievable.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		B47D794D2097E1A5002ACF09 /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_10 /* Validator+BREmail.swift */,
+				B47D794B2097DB8A002ACF09 /* Validator+Password.swift */,
+			);
+			path = Validation;
 			sourceTree = "<group>";
 		};
 		OBJ_108 /* Query */ = {
@@ -9070,9 +9079,8 @@
 		OBJ_9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_10 /* Validator+BREmail.swift */,
-				B47D794B2097DB8A002ACF09 /* Validator+Password.swift */,
-				B47D793E2093FB74002ACF09 /* Request+Paging.swift */,
+				B47D794D2097E1A5002ACF09 /* Validation */,
+				B47D793E2093FB74002ACF09 /* Request+Query.swift */,
 				B47D79402093FCD7002ACF09 /* QueryBuilder+Convenience.swift */,
 				B47D7949209694B8002ACF09 /* Bool+SQLiteDataConvertible.swift */,
 			);
@@ -11907,7 +11915,7 @@
 				OBJ_918 /* FunctionReport.swift in Sources */,
 				OBJ_919 /* TargetReport.swift in Sources */,
 				B47D794C2097DB8A002ACF09 /* Validator+Password.swift in Sources */,
-				B47D793F2093FB74002ACF09 /* Request+Paging.swift in Sources */,
+				B47D793F2093FB74002ACF09 /* Request+Query.swift in Sources */,
 				OBJ_920 /* Group.swift in Sources */,
 				OBJ_921 /* Project.swift in Sources */,
 				B47D794A209694B8002ACF09 /* Bool+SQLiteDataConvertible.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  Request+Paging.swift
+//  Request+Query.swift
 //  App
 //
 //  Created by William McGinty on 4/27/18.
