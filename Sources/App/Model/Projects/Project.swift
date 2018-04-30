@@ -15,12 +15,10 @@ struct Project: Content, SQLiteUUIDModel, Migration {
     //MARK: Properties
     var id: UUID?
     var name: String
-    private var active: Int
+    var isActive: Bool
     var groupID: UUID?
     
     //MARK: Interface
-    var isActive: Bool { return active == 1 }
-    
     var coverageReports: Children<Project, CoverageReport> {
         return children(\.projectID)
     }
@@ -38,7 +36,13 @@ struct Project: Content, SQLiteUUIDModel, Migration {
     }
     
     func patched(with patch: ProjectPatch) -> Project {
-        return Project(id: patch.id ?? id, name: patch.name ?? name, active: patch.active ?? active, groupID: patch.groupID ?? groupID)
+        return Project(id: patch.id ?? id, name: patch.name ?? name, isActive: patch.isActive ?? isActive, groupID: patch.groupID ?? groupID)
+    }
+    
+    //MARK: Codable
+    private enum CodingKeys: String, CodingKey {
+        case id, name, groupID
+        case isActive = "is_active"
     }
 }
 
@@ -51,11 +55,17 @@ struct ProjectPatch: Content {
     //MARK: Properties
     var id: UUID?
     var name: String?
-    var active: Int?
+    var isActive: Bool?
     var groupID: UUID?
     
     //MARK: Interface
     func invalidatingGroupID() -> ProjectPatch {
-        return ProjectPatch(id: id, name: name, active: active, groupID: nil)
+        return ProjectPatch(id: id, name: name, isActive: isActive, groupID: nil)
+    }
+    
+    //MARK: Codable
+    private enum CodingKeys: String, CodingKey {
+        case id, name, groupID
+        case isActive = "is_active"
     }
 }

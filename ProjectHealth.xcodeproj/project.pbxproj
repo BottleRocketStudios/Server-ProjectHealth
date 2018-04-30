@@ -24,6 +24,7 @@
 		B47D793F2093FB74002ACF09 /* Request+Paging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D793E2093FB74002ACF09 /* Request+Paging.swift */; };
 		B47D79412093FCD7002ACF09 /* QueryBuilder+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D79402093FCD7002ACF09 /* QueryBuilder+Convenience.swift */; };
 		B47D79442093FDC3002ACF09 /* ParentRetrievable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D79432093FDC3002ACF09 /* ParentRetrievable.swift */; };
+		B47D794A209694B8002ACF09 /* Bool+SQLiteDataConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D7949209694B8002ACF09 /* Bool+SQLiteDataConvertible.swift */; };
 		OBJ_1065 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* AppTests.swift */; };
 		OBJ_1067 /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "ProjectHealth::App::Product" /* App.framework */; };
 		OBJ_1068 /* Authentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Auth::Authentication::Product" /* Authentication.framework */; };
@@ -5179,6 +5180,7 @@
 		B47D793E2093FB74002ACF09 /* Request+Paging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Paging.swift"; sourceTree = "<group>"; };
 		B47D79402093FCD7002ACF09 /* QueryBuilder+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueryBuilder+Convenience.swift"; sourceTree = "<group>"; };
 		B47D79432093FDC3002ACF09 /* ParentRetrievable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentRetrievable.swift; sourceTree = "<group>"; };
+		B47D7949209694B8002ACF09 /* Bool+SQLiteDataConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+SQLiteDataConvertible.swift"; sourceTree = "<group>"; };
 		"Console::Command::Product" /* Command.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Command.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Console::Product" /* Console.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Console.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Logging::Product" /* Logging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Logging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -7909,7 +7911,7 @@
 			path = Connection;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -7920,7 +7922,6 @@
 				OBJ_40 /* Dependencies */,
 				OBJ_861 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_500 /* ConnectionPool */ = {
@@ -9070,6 +9071,7 @@
 				OBJ_10 /* Validator+BREmail.swift */,
 				B47D793E2093FB74002ACF09 /* Request+Paging.swift */,
 				B47D79402093FCD7002ACF09 /* QueryBuilder+Convenience.swift */,
+				B47D7949209694B8002ACF09 /* Bool+SQLiteDataConvertible.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -10723,7 +10725,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_861 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -11904,6 +11906,7 @@
 				B47D793F2093FB74002ACF09 /* Request+Paging.swift in Sources */,
 				OBJ_920 /* Group.swift in Sources */,
 				OBJ_921 /* Project.swift in Sources */,
+				B47D794A209694B8002ACF09 /* Bool+SQLiteDataConvertible.swift in Sources */,
 				OBJ_922 /* CoverageRecordController.swift in Sources */,
 				OBJ_923 /* CoverageRouteController.swift in Sources */,
 				OBJ_924 /* GroupRouteController.swift in Sources */,
