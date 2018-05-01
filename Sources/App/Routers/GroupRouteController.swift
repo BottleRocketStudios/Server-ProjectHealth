@@ -34,7 +34,7 @@ private extension GroupRouteController {
     }
     
     func retrieveGroupHandler(_ request: Request) throws -> Future<[Project]> {
-        return try request.parameters.next(Group.self).flatMap(to: [Project].self) {
+        return try request.parameters.next(Group.self).flatMap {
             return try $0.projects.query(on: request).all()
         }
     }
@@ -44,7 +44,7 @@ private extension GroupRouteController {
     }
     
     func updateGroupHandler(_ request: Request, update: GroupPatch) throws -> Future<HTTPResponseStatus> {
-        return try request.parameters.next(Group.self).flatMap(to: HTTPResponseStatus.self) { current in
+        return try request.parameters.next(Group.self).flatMap { current in
             return current.patched(with: update).update(on: request).transform(to: .ok)
         }
     }
@@ -54,7 +54,7 @@ private extension GroupRouteController {
     }
     
     func addProjectToGroupHandler(_ request: Request, project: Project) throws -> Future<HTTPResponseStatus> {
-        return try request.parameters.next(Group.self).flatMap(to: HTTPResponseStatus.self) { matchingGroup in
+        return try request.parameters.next(Group.self).flatMap { matchingGroup in
             let modified = project.inGroup(with: matchingGroup.id)
             return modified.save(on: request).transform(to: .created)
         }
