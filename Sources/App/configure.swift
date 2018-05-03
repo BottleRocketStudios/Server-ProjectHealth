@@ -2,6 +2,7 @@ import Vapor
 import Fluent
 import FluentSQLite
 import Authentication
+import Logging
 
 /// Called before your application initializes.
 ///
@@ -43,9 +44,12 @@ public func configure(
     //Configure authentication provisions
     try services.register(AuthenticationProvider())
     
-    //Configure middlewares
+    //Configure global middlewares - errors, logging, cache-control
     var middlewareConfig = MiddlewareConfig()
     middlewareConfig.use(ErrorMiddleware.self)
+    
+    services.register { LogMiddleware(log: try $0.make(Logger.self)) }
+    middlewareConfig.use(LogMiddleware.self)
     
     let cacheMiddleware = CacheControlMiddleware()
     middlewareConfig.use(cacheMiddleware)

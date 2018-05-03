@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		0EC8FFAD209A9E0D0051F732 /* CacheControlMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC8FFAC209A9E0D0051F732 /* CacheControlMiddleware.swift */; };
+		0EC8FFAF209B7CC70051F732 /* LogMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC8FFAE209B7CC70051F732 /* LogMiddleware.swift */; };
 		OBJ_1078 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* AppTests.swift */; };
 		OBJ_1080 /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "ProjectHealth::App::Product" /* App.framework */; };
 		OBJ_1081 /* Authentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Auth::Authentication::Product" /* Authentication.framework */; };
@@ -5180,6 +5181,7 @@
 
 /* Begin PBXFileReference section */
 		0EC8FFAC209A9E0D0051F732 /* CacheControlMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheControlMiddleware.swift; sourceTree = "<group>"; };
+		0EC8FFAE209B7CC70051F732 /* LogMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogMiddleware.swift; sourceTree = "<group>"; };
 		"Auth::Authentication::Product" /* Authentication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Authentication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Command::Product" /* Command.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Command.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Console::Product" /* Console.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Console.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -6788,6 +6790,7 @@
 			isa = PBXGroup;
 			children = (
 				0EC8FFAC209A9E0D0051F732 /* CacheControlMiddleware.swift */,
+				0EC8FFAE209B7CC70051F732 /* LogMiddleware.swift */,
 			);
 			path = Middleware;
 			sourceTree = "<group>";
@@ -11934,6 +11937,7 @@
 				OBJ_932 /* Group.swift in Sources */,
 				OBJ_933 /* Project.swift in Sources */,
 				OBJ_934 /* ParentRetrievable.swift in Sources */,
+				0EC8FFAF209B7CC70051F732 /* LogMiddleware.swift in Sources */,
 				OBJ_935 /* CoverageRecordController.swift in Sources */,
 				OBJ_936 /* CoverageRouteController.swift in Sources */,
 				OBJ_937 /* GroupRouteController.swift in Sources */,
