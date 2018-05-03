@@ -1,6 +1,5 @@
 import Vapor
-import Fluent
-import FluentSQLite
+import FluentPostgreSQL
 import Authentication
 import Logging
 
@@ -22,23 +21,25 @@ public func configure(
     let directoryConfig = DirectoryConfig.detect()
     services.register(directoryConfig)
     
-    //Configure fluent - creating a database so we can persist data
-    try services.register(FluentSQLiteProvider())
+    //Configure our Fluent provider with our Postgres database running in Docker
+    /*NOTE: If you haven't done so, you will need to create a local Postgres Docker container for your database:
+        docker run --name projecthealth-postgres -e POSTGRES_DB=vapor -e POSTGRES_USER=vapor -e POSTGRES_PASSWORD=password -p 5432:5432 -d postgres */
+    try services.register(FluentPostgreSQLProvider())
     
     var databaseConfig = DatabasesConfig()
-    let db = try SQLiteDatabase(storage: .file(path: "\(directoryConfig.workDir)projects.db"))
-    databaseConfig.add(database: db, as: .sqlite)
+    let postgreDatabase = PostgreSQLDatabase(config: PostgreSQLDatabaseConfig(hostname: "localhost", username: "vapor", database: "vapor", password: "password"))
+    databaseConfig.add(database: postgreDatabase, as: .psql)
     services.register(databaseConfig)
     
     //Configure the database migration table
     var migrationConfig = MigrationConfig()
-    migrationConfig.add(model: Project.self, database: .sqlite)
-    migrationConfig.add(model: Group.self, database: .sqlite)
-    migrationConfig.add(model: User.self, database: .sqlite)
-    migrationConfig.add(model: CoverageReport.self, database: .sqlite)
-    migrationConfig.add(model: TargetReport.self, database: .sqlite)
-    migrationConfig.add(model: FileReport.self, database: .sqlite)
-    migrationConfig.add(model: FunctionReport.self, database: .sqlite)
+    migrationConfig.add(model: Project.self, database: .psql)
+    migrationConfig.add(model: Group.self, database: .psql)
+    migrationConfig.add(model: User.self, database: .psql)
+    migrationConfig.add(model: CoverageReport.self, database: .psql)
+    migrationConfig.add(model: TargetReport.self, database: .psql)
+    migrationConfig.add(model: FileReport.self, database: .psql)
+    migrationConfig.add(model: FunctionReport.self, database: .psql)
     services.register(migrationConfig)
     
     //Configure authentication provisions

@@ -7,10 +7,9 @@
 
 import Foundation
 import Vapor
-import Fluent
-import FluentSQLite
+import FluentPostgreSQL
 
-struct FunctionReport: Content, SQLiteUUIDModel, Migration, Equatable {
+struct FunctionReport: Content, PostgreSQLUUIDModel, Migration, Equatable {
     
     //MARK: Properties
     var id: UUID?

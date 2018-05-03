@@ -10,7 +10,6 @@ import Vapor
 import Authentication
 import Crypto
 import Fluent
-import FluentSQLite
 
 class CoverageRouteController: RouteCollection {
     

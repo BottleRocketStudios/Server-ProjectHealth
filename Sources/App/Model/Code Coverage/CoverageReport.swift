@@ -7,10 +7,9 @@
 
 import Foundation
 import Vapor
-import Fluent
-import FluentSQLite
+import FluentPostgreSQL
 
-struct CoverageReport: Content, SQLiteUUIDModel, Migration {
+struct CoverageReport: Content, PostgreSQLUUIDModel, Migration {
     
     //MARK: Properties
     var id: UUID?

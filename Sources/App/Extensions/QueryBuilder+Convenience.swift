@@ -8,7 +8,6 @@
 import Foundation
 import Vapor
 import Fluent
-import FluentSQLite
 
 //MARK: Paging
 extension QueryBuilder {
