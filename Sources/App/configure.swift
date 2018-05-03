@@ -46,5 +46,9 @@ public func configure(
     //Configure middlewares
     var middlewareConfig = MiddlewareConfig()
     middlewareConfig.use(ErrorMiddleware.self)
+    
+    let cacheMiddleware = CacheControlMiddleware()
+    middlewareConfig.use(cacheMiddleware)
+    
     services.register(middlewareConfig)
 }

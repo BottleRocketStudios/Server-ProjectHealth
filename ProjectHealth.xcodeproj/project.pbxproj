@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0EC8FFAD209A9E0D0051F732 /* CacheControlMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC8FFAC209A9E0D0051F732 /* CacheControlMiddleware.swift */; };
 		OBJ_1078 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* AppTests.swift */; };
 		OBJ_1080 /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "ProjectHealth::App::Product" /* App.framework */; };
 		OBJ_1081 /* Authentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Auth::Authentication::Product" /* Authentication.framework */; };
@@ -5178,6 +5179,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0EC8FFAC209A9E0D0051F732 /* CacheControlMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheControlMiddleware.swift; sourceTree = "<group>"; };
 		"Auth::Authentication::Product" /* Authentication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Authentication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Command::Product" /* Command.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Command.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Console::Product" /* Console.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Console.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -6782,6 +6784,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EC8FFAB209A9D6E0051F732 /* Middleware */ = {
+			isa = PBXGroup;
+			children = (
+				0EC8FFAC209A9E0D0051F732 /* CacheControlMiddleware.swift */,
+			);
+			path = Middleware;
+			sourceTree = "<group>";
+		};
 		OBJ_100 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -7913,7 +7923,7 @@
 			name = "DatabaseKit 1.0.1";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -7924,7 +7934,6 @@
 				OBJ_47 /* Dependencies */,
 				OBJ_869 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_500 /* DatabaseKit */ = {
@@ -8943,6 +8952,7 @@
 		OBJ_8 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				0EC8FFAB209A9D6E0051F732 /* Middleware */,
 				OBJ_9 /* Extensions */,
 				OBJ_16 /* Model */,
 				OBJ_28 /* Protocols */,
@@ -10740,7 +10750,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_869 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -11927,6 +11937,7 @@
 				OBJ_935 /* CoverageRecordController.swift in Sources */,
 				OBJ_936 /* CoverageRouteController.swift in Sources */,
 				OBJ_937 /* GroupRouteController.swift in Sources */,
+				0EC8FFAD209A9E0D0051F732 /* CacheControlMiddleware.swift in Sources */,
 				OBJ_938 /* ProjectRouteController.swift in Sources */,
 				OBJ_939 /* UserRouteController.swift in Sources */,
 				OBJ_940 /* boot.swift in Sources */,
