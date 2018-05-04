@@ -1,4 +1,4 @@
 module CNIOOpenSSL {
-    umbrella "/Users/will.mcginty/Developer/Bottle Rocket/Open Source/Server-ProjectHealth/.build/checkouts/swift-nio-ssl.git-1370587408992578247/Sources/CNIOOpenSSL/include"
+    umbrella "/Users/willmcginty/Developer/Open Source/Server-ProjectHealth/.build/checkouts/swift-nio-ssl.git-1370587408992578247/Sources/CNIOOpenSSL/include"
     export *
 }
