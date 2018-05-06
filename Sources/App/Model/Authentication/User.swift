@@ -7,12 +7,11 @@
 
 import Foundation
 import Vapor
-import Fluent
-import FluentSQLite
+import FluentPostgreSQL
 import Authentication
 import Validation
 
-struct User: Content, SQLiteUUIDModel, Migration {
+struct User: Content, PostgreSQLUUIDModel, Migration {
     
     //MARK: Properties
     var id: UUID?

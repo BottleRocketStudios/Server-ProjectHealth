@@ -56,12 +56,12 @@
         }
       },
       {
-        "package": "FluentSQLite",
-        "repositoryURL": "https://github.com/vapor/fluent-sqlite.git",
+        "package": "FluentPostgreSQL",
+        "repositoryURL": "https://github.com/vapor/fluent-postgresql.git",
         "state": {
           "branch": null,
-          "revision": "cda27c5f946972a5e14f4e29be81b0572fa77123",
-          "version": "3.0.0-rc.2.2"
+          "revision": "6e20e6ab78760903464908bc3cf7d9c8b77f4066",
+          "version": "1.0.0-rc.2.2.1"
         }
       },
       {
@@ -80,6 +80,15 @@
           "branch": null,
           "revision": "7778dcb62f3efa845e8e2808937bb347575ba7ce",
           "version": "3.0.1"
+        }
+      },
+      {
+        "package": "PostgreSQL",
+        "repositoryURL": "https://github.com/vapor/postgresql.git",
+        "state": {
+          "branch": null,
+          "revision": "dfc03db659141b2e0c1130ce7c87c6ad2315fe7b",
+          "version": "1.0.0-rc.2.1"
         }
       },
       {
@@ -110,21 +119,12 @@
         }
       },
       {
-        "package": "SQLite",
-        "repositoryURL": "https://github.com/vapor/sqlite.git",
-        "state": {
-          "branch": null,
-          "revision": "aa16db0a4e670c94543120dd9c4f5a49abf20a97",
-          "version": "3.0.0-rc.2.3"
-        }
-      },
-      {
         "package": "swift-nio",
         "repositoryURL": "https://github.com/apple/swift-nio.git",
         "state": {
           "branch": null,
-          "revision": "8bf1be06728214f9698b4ee13bdb6ebffe35a40b",
-          "version": "1.6.0"
+          "revision": "a5db2a67515ad2b490ac5646db204a5edf939f47",
+          "version": "1.6.1"
         }
       },
       {
@@ -195,8 +195,8 @@
         "repositoryURL": "https://github.com/vapor/vapor.git",
         "state": {
           "branch": null,
-          "revision": "c834f9495ff5ab9768b74f5822ff23d795e36922",
-          "version": "3.0.0-rc.2.8.1"
+          "revision": "821184be792dfa144a82fe379784e04eb9dad1eb",
+          "version": "3.0.1"
         }
       },
       {

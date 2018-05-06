@@ -7,8 +7,6 @@
 
 import Foundation
 import Vapor
-import Fluent
-import FluentSQLite
 
 struct CompleteReport: Content {
     

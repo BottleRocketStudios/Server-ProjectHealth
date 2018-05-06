@@ -9,7 +9,7 @@ import Foundation
 import Vapor
 import Authentication
 import Crypto
-import FluentSQLite
+import Fluent
 import SWXMLHash
 
 
