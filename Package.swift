@@ -12,7 +12,7 @@ let package = Package(
         .package(url: "https://github.com/drmohundro/SWXMLHash.git", from: "4.0.0")
     ],
     targets: [
-        .target(name: "App", dependencies: ["Vapor", "FluentPostgreSQL", "Authentication", "Crypto"]),
+        .target(name: "App", dependencies: ["Vapor", "FluentPostgreSQL", "Authentication", "Crypto", "SWXMLHash"]),
         .target(name: "Run", dependencies: ["App"]),
         .testTarget(name: "AppTests", dependencies: ["App"]),
         ]
