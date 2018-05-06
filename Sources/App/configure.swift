@@ -22,12 +22,12 @@ public func configure(
     services.register(directoryConfig)
     
     //Configure our Fluent provider with our Postgres database running in Docker
-    /*NOTE: If you haven't done so, you will need to create a local Postgres Docker container for your database:
-        docker run --name projecthealth-postgres -e POSTGRES_DB=vapor -e POSTGRES_USER=vapor -e POSTGRES_PASSWORD=password -p 5432:5432 -d postgres */
+    /*NOTE: If you haven't done so, you will need to create a local Postgres database:
+        https://medium.com/@martinlasek/tutorial-how-to-use-postgresql-efb62a434cc5 */
     try services.register(FluentPostgreSQLProvider())
     
     var databaseConfig = DatabasesConfig()
-    let postgreDatabase = PostgreSQLDatabase(config: PostgreSQLDatabaseConfig(hostname: "localhost", username: "vapor", database: "vapor", password: "password"))
+    let postgreDatabase = PostgreSQLDatabase(config: PostgreSQLDatabaseConfig(hostname: "localhost", port: 5432, username: "willmcginty", database: "projecthealth"))
     databaseConfig.add(database: postgreDatabase, as: .psql)
     services.register(databaseConfig)
     
