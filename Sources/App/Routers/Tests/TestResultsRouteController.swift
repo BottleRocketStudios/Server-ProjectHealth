@@ -10,7 +10,7 @@ import Vapor
 import Authentication
 import Crypto
 import Fluent
-import XMLCoding
+import SWXMLHash
 
 
 class TestResultsRouteController: RouteCollection {
@@ -28,10 +28,17 @@ private extension TestResultsRouteController {
     
     func addTestResultsHandler(_ request: Request) throws -> HTTPResponseStatus {
         guard let xmlData = request.http.body.data else { throw Abort(.badRequest) }
-        let xml = try XMLDecoder().decode(TestSuites.self, from: xmlData)
+        let xml = SWXMLHash.parse(xmlData)
+        let a = xml["testsuites"]["testsuite"].all
         
-        print(xml)
-
+        print("XML")
+        print(a[0].element?.attribute(by: "name")?.text)
+//        for b in a {
+//            print(b)
+//            print(b["name"].element?.text)
+//            print(b["tests"].element?.text)
+//            print(b["failures"].element?.text)
+//        }
 
         return .ok
     }
