@@ -19,17 +19,31 @@ class TestResultsRouteController: RouteCollection {
         
         let basicAuthMiddleware = User.basicAuthMiddleware(using: BCrypt)
         let basicAuthGroup = group.grouped(basicAuthMiddleware)
-        basicAuthGroup.post(Project.parameter, use: addTestResultsHandler)
+        basicAuthGroup.post(Project.parameter, use: addTestResultsReportHandler)
     }
 }
 
 private extension TestResultsRouteController {
     
-    func addTestResultsHandler(_ request: Request) throws -> HTTPResponseStatus {
+    func addTestResultsReportHandler(_ request: Request) throws -> Future<HTTPResponseStatus> {
         guard let xmlData = request.http.body.data else { throw Abort(.badRequest) }
-        let results = try TestResultsRecordController.parsedTestResults(from: xmlData)
-        print(results)
-       
-        return .ok
+        let testResults = try TestResultsParseController.parsedTestResults(from: xmlData)
+        
+        return try addTestResultsReportHandler(request, testResults: testResults)
+    }
+    
+    func addTestResultsReportHandler(_ request: Request, testResults: CompleteTestResultsReport) throws -> Future<HTTPResponseStatus> {
+        return Future.map(on: request) {
+            return HTTPResponseStatus.ok
+        }
+        
+//        return try request.parameters.next(Project.self).flatMap { project in
+//
+//
+//            return completeReport.report.associating(with: project).save(on: request).then { coverageReport -> Future<[[[FunctionReport]]]> in
+//                let targetsFuture: Future<[TargetReport]> = completeReport.targets.map { $0.report.associating(with: coverageReport).save(on: request) }.flatten(on: request)
+//                return CoverageRecordController.createFunctionRecords(for: targetsFuture, with: completeReport, on: request)
+//                }.transform(to: HTTPResponseStatus.created)
+//        }
     }
 }

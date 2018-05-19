@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		B4F4108520AFB02F005AB65E /* TestResultsParseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F4108420AFB02F005AB65E /* TestResultsParseController.swift */; };
+		B4F4108820AFB051005AB65E /* CompleteTestResultsReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F4108720AFB051005AB65E /* CompleteTestResultsReport.swift */; };
 		OBJ_1000 /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SWXMLHash::SWXMLHash::Product" /* SWXMLHash.framework */; };
 		OBJ_1001 /* Authentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Auth::Authentication::Product" /* Authentication.framework */; };
 		OBJ_1002 /* FluentPostgreSQL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "FluentPostgreSQL::FluentPostgreSQL::Product" /* FluentPostgreSQL.framework */; };
@@ -5307,6 +5309,8 @@
 
 /* Begin PBXFileReference section */
 		"Auth::Authentication::Product" /* Authentication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Authentication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4F4108420AFB02F005AB65E /* TestResultsParseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultsParseController.swift; sourceTree = "<group>"; };
+		B4F4108720AFB051005AB65E /* CompleteTestResultsReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteTestResultsReport.swift; sourceTree = "<group>"; };
 		"Console::Command::Product" /* Command.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Command.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Console::Product" /* Console.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Console.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Logging::Product" /* Logging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Logging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -6966,6 +6970,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B4F4108620AFB042005AB65E /* Test Results */ = {
+			isa = PBXGroup;
+			children = (
+				B4F4108720AFB051005AB65E /* CompleteTestResultsReport.swift */,
+			);
+			path = "Test Results";
+			sourceTree = "<group>";
+		};
 		OBJ_105 /* PostgreSQL 1.0.0-rc.2.1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -7173,6 +7185,7 @@
 		OBJ_18 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B4F4108620AFB042005AB65E /* Test Results */,
 				OBJ_19 /* Authentication */,
 				OBJ_21 /* Code Coverage */,
 				OBJ_27 /* Projects */,
@@ -7693,6 +7706,7 @@
 			children = (
 				OBJ_39 /* TestResultsRecordController.swift */,
 				OBJ_40 /* TestResultsRouteController.swift */,
+				B4F4108420AFB02F005AB65E /* TestResultsParseController.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -12284,6 +12298,7 @@
 				OBJ_982 /* CoverageReport.swift in Sources */,
 				OBJ_983 /* FileReport.swift in Sources */,
 				OBJ_984 /* FunctionReport.swift in Sources */,
+				B4F4108820AFB051005AB65E /* CompleteTestResultsReport.swift in Sources */,
 				OBJ_985 /* TargetReport.swift in Sources */,
 				OBJ_986 /* Group.swift in Sources */,
 				OBJ_987 /* Project.swift in Sources */,
@@ -12291,6 +12306,7 @@
 				OBJ_989 /* CoverageRecordController.swift in Sources */,
 				OBJ_990 /* CoverageRouteController.swift in Sources */,
 				OBJ_991 /* GroupRouteController.swift in Sources */,
+				B4F4108520AFB02F005AB65E /* TestResultsParseController.swift in Sources */,
 				OBJ_992 /* ProjectRouteController.swift in Sources */,
 				OBJ_993 /* TestResultsRecordController.swift in Sources */,
 				OBJ_994 /* TestResultsRouteController.swift in Sources */,
