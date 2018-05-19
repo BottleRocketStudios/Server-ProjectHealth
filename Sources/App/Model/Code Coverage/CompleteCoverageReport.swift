@@ -8,7 +8,7 @@
 import Foundation
 import Vapor
 
-struct CompleteReport: Content {
+struct CompleteCoverageReport: Content {
     
     //MARK: Properties
     let report: CoverageReport
@@ -31,13 +31,13 @@ struct CompleteReport: Content {
     }
     
     //MARK: Interface
-    func target(matching targetReport: TargetReport) -> CompleteReport.Target? {
+    func target(matching targetReport: TargetReport) -> CompleteCoverageReport.Target? {
         return targets.first { $0.report == targetReport }
     }
 
-    func file(matching fileReport: FileReport) -> CompleteReport.Target.File? {
+    func file(matching fileReport: FileReport) -> CompleteCoverageReport.Target.File? {
         for target in targets {
-            if let match = target.files.first(where: { fileReport.name == $0.report.name }) {
+            if let match = target.files.first(where: { fileReport == $0.report }) {
                 return match
             }
         }
@@ -47,7 +47,7 @@ struct CompleteReport: Content {
 }
 
 //MARK: Codable
-extension CompleteReport.Target.File {
+extension CompleteCoverageReport.Target.File {
     
     private enum CodingKeys: String, CodingKey {
         case functions
@@ -66,7 +66,7 @@ extension CompleteReport.Target.File {
 }
 
 //MARK: Codable
-extension CompleteReport.Target {
+extension CompleteCoverageReport.Target {
     
     private enum CodingKeys: String, CodingKey {
         case files
@@ -85,7 +85,7 @@ extension CompleteReport.Target {
 }
 
 //MARK: Codable
-extension CompleteReport {
+extension CompleteCoverageReport {
     
     private enum CodingKeys: String, CodingKey {
         case targets

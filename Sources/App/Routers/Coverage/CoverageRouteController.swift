@@ -23,13 +23,14 @@ class CoverageRouteController: RouteCollection {
 
         let basicAuthMiddleware = User.basicAuthMiddleware(using: BCrypt)
         let basicAuthGroup = group.grouped(basicAuthMiddleware)
-        basicAuthGroup.post(CompleteReport.self, at: Project.parameter, use: addCoverageReportHandler)
+        basicAuthGroup.post(CompleteCoverageReport.self, at: Project.parameter, use: addCoverageReportHandler)
     }
 }
 
 //MARK: Helper
 private extension CoverageRouteController {
     
+    //MARK: Retrieve
     func getCoverageReportHandler(_ request: Request) throws -> Future<[CoverageReport]> {
         let page = request.getPageInformation()
         let direction = request.getSortDirection()
@@ -38,7 +39,7 @@ private extension CoverageRouteController {
         }
     }
     
-    func getCompleteCoverageReportHandler(_ request: Request) throws -> Future<[CompleteReport]> {
+    func getCompleteCoverageReportHandler(_ request: Request) throws -> Future<[CompleteCoverageReport]> {
         return try getCoverageReportHandler(request).flatMap { coverageReports in
             return try coverageReports.map { try CoverageRecordController.completeReport(for: $0, on: request) }.flatten(on: request)
         }
@@ -65,7 +66,8 @@ private extension CoverageRouteController {
         }
     }
     
-    func addCoverageReportHandler(_ request: Request, completeReport: CompleteReport) throws -> Future<HTTPResponseStatus> {
+    //MARK: Add New
+    func addCoverageReportHandler(_ request: Request, completeReport: CompleteCoverageReport) throws -> Future<HTTPResponseStatus> {
         return try request.parameters.next(Project.self).flatMap { project in
             return completeReport.report.associating(with: project).save(on: request).then { coverageReport -> Future<[[[FunctionReport]]]> in
                 let targetsFuture: Future<[TargetReport]> = completeReport.targets.map { $0.report.associating(with: coverageReport).save(on: request) }.flatten(on: request)

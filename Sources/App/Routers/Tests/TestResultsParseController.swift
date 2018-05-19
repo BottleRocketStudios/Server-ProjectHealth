@@ -19,25 +19,24 @@ class TestResultsParseController {
         
         let cases = try xml["testsuites"]["testsuite"].all.map { indexer -> CompleteTestResultsReport.Case in
             let suiteName: String = try indexer.value(ofAttribute: "name")
-            let testCount: Int = try xml["testsuites"].value(ofAttribute: "tests")
-            let failureCount: Int = try xml["testsuites"].value(ofAttribute: "failures")
+            let testCount: Int = try indexer.value(ofAttribute: "tests")
+            let failureCount: Int = try indexer.value(ofAttribute: "failures")
             
             let tests = try indexer["testcase"].all.map { indexer -> CompleteTestResultsReport.Case.Test in
                 let className: String = try indexer.value(ofAttribute: "classname")
                 let testName: String = try indexer.value(ofAttribute: "name")
-                let duration: TimeInterval? = xml["testsuites"].value(ofAttribute: "time")
+                let duration: TimeInterval? = indexer.value(ofAttribute: "time")
                 
-                let failures = try indexer["failure"].all.map { indexer -> CompleteTestResultsReport.Case.Test.Failure in
+                let failures = try indexer["failure"].all.map { indexer -> TestFailureReport in
                     let failureMessage: String = try indexer.value(ofAttribute: "message")
                     let location: String = indexer.element?.text ?? ""
-                    return CompleteTestResultsReport.Case.Test.Failure(message: failureMessage, location: location)
+                    return TestFailureReport(id: nil, message: failureMessage, location: location, testID: nil)
                 }
-                
-                return CompleteTestResultsReport.Case.Test(className: className, name: testName, duration: duration, failures: failures)
+                return CompleteTestResultsReport.Case.Test(report: UnitTestReport(id: nil, className: className, name: testName, duration: duration, caseID: nil), failures: failures)
             }
-            return CompleteTestResultsReport.Case(name: suiteName, testCount: testCount, failureCount: failureCount, tests: tests)
+            return CompleteTestResultsReport.Case(report: TestCaseReport(id: nil, name: suiteName, testCount: testCount, failureCount: failureCount, reportID: nil), tests: tests)
         }
-        return CompleteTestResultsReport(name: reportName, testCount: testCount, failureCount: failureCount, cases: cases)
+        return CompleteTestResultsReport(report: TestSuiteReport(id: nil, name: reportName, testCount: testCount, failureCount: failureCount, projectID: nil, createdAt: nil, updatedAt: nil), cases: cases)
     }
 }
 

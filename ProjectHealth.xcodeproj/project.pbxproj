@@ -23,6 +23,10 @@
 /* Begin PBXBuildFile section */
 		B4F4108520AFB02F005AB65E /* TestResultsParseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F4108420AFB02F005AB65E /* TestResultsParseController.swift */; };
 		B4F4108820AFB051005AB65E /* CompleteTestResultsReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F4108720AFB051005AB65E /* CompleteTestResultsReport.swift */; };
+		B4F4108A20AFBB59005AB65E /* TestCaseReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F4108920AFBB59005AB65E /* TestCaseReport.swift */; };
+		B4F4108C20AFBB5E005AB65E /* UnitTestReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F4108B20AFBB5E005AB65E /* UnitTestReport.swift */; };
+		B4F4108E20AFBB63005AB65E /* TestFailureReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F4108D20AFBB63005AB65E /* TestFailureReport.swift */; };
+		B4F4109020AFBC0F005AB65E /* TestSuiteReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F4108F20AFBC0F005AB65E /* TestSuiteReport.swift */; };
 		OBJ_1000 /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SWXMLHash::SWXMLHash::Product" /* SWXMLHash.framework */; };
 		OBJ_1001 /* Authentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Auth::Authentication::Product" /* Authentication.framework */; };
 		OBJ_1002 /* FluentPostgreSQL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "FluentPostgreSQL::FluentPostgreSQL::Product" /* FluentPostgreSQL.framework */; };
@@ -1273,7 +1277,7 @@
 		OBJ_978 /* CacheControlMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* CacheControlMiddleware.swift */; };
 		OBJ_979 /* LogMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* LogMiddleware.swift */; };
 		OBJ_980 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* User.swift */; };
-		OBJ_981 /* CompleteReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* CompleteReport.swift */; };
+		OBJ_981 /* CompleteCoverageReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* CompleteCoverageReport.swift */; };
 		OBJ_982 /* CoverageReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* CoverageReport.swift */; };
 		OBJ_983 /* FileReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* FileReport.swift */; };
 		OBJ_984 /* FunctionReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* FunctionReport.swift */; };
@@ -5311,6 +5315,10 @@
 		"Auth::Authentication::Product" /* Authentication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Authentication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4F4108420AFB02F005AB65E /* TestResultsParseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultsParseController.swift; sourceTree = "<group>"; };
 		B4F4108720AFB051005AB65E /* CompleteTestResultsReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteTestResultsReport.swift; sourceTree = "<group>"; };
+		B4F4108920AFBB59005AB65E /* TestCaseReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCaseReport.swift; sourceTree = "<group>"; };
+		B4F4108B20AFBB5E005AB65E /* UnitTestReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestReport.swift; sourceTree = "<group>"; };
+		B4F4108D20AFBB63005AB65E /* TestFailureReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFailureReport.swift; sourceTree = "<group>"; };
+		B4F4108F20AFBC0F005AB65E /* TestSuiteReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSuiteReport.swift; sourceTree = "<group>"; };
 		"Console::Command::Product" /* Command.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Command.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Console::Product" /* Console.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Console.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Logging::Product" /* Logging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Logging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -5433,7 +5441,7 @@
 		OBJ_217 /* ReferenceSupporting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceSupporting.swift; sourceTree = "<group>"; };
 		OBJ_218 /* ReferentialAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferentialAction.swift; sourceTree = "<group>"; };
 		OBJ_219 /* ReferentialActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferentialActions.swift; sourceTree = "<group>"; };
-		OBJ_22 /* CompleteReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteReport.swift; sourceTree = "<group>"; };
+		OBJ_22 /* CompleteCoverageReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCoverageReport.swift; sourceTree = "<group>"; };
 		OBJ_220 /* SchemaBuilder+References.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SchemaBuilder+References.swift"; sourceTree = "<group>"; };
 		OBJ_221 /* SchemaReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaReference.swift; sourceTree = "<group>"; };
 		OBJ_223 /* Children.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Children.swift; sourceTree = "<group>"; };
@@ -6974,6 +6982,10 @@
 			isa = PBXGroup;
 			children = (
 				B4F4108720AFB051005AB65E /* CompleteTestResultsReport.swift */,
+				B4F4108F20AFBC0F005AB65E /* TestSuiteReport.swift */,
+				B4F4108920AFBB59005AB65E /* TestCaseReport.swift */,
+				B4F4108B20AFBB5E005AB65E /* UnitTestReport.swift */,
+				B4F4108D20AFBB63005AB65E /* TestFailureReport.swift */,
 			);
 			path = "Test Results";
 			sourceTree = "<group>";
@@ -7284,11 +7296,11 @@
 		OBJ_21 /* Code Coverage */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_22 /* CompleteReport.swift */,
+				OBJ_22 /* CompleteCoverageReport.swift */,
 				OBJ_23 /* CoverageReport.swift */,
+				OBJ_26 /* TargetReport.swift */,
 				OBJ_24 /* FileReport.swift */,
 				OBJ_25 /* FunctionReport.swift */,
-				OBJ_26 /* TargetReport.swift */,
 			);
 			path = "Code Coverage";
 			sourceTree = "<group>";
@@ -12294,23 +12306,27 @@
 				OBJ_978 /* CacheControlMiddleware.swift in Sources */,
 				OBJ_979 /* LogMiddleware.swift in Sources */,
 				OBJ_980 /* User.swift in Sources */,
-				OBJ_981 /* CompleteReport.swift in Sources */,
+				OBJ_981 /* CompleteCoverageReport.swift in Sources */,
 				OBJ_982 /* CoverageReport.swift in Sources */,
 				OBJ_983 /* FileReport.swift in Sources */,
 				OBJ_984 /* FunctionReport.swift in Sources */,
 				B4F4108820AFB051005AB65E /* CompleteTestResultsReport.swift in Sources */,
+				B4F4108C20AFBB5E005AB65E /* UnitTestReport.swift in Sources */,
 				OBJ_985 /* TargetReport.swift in Sources */,
+				B4F4109020AFBC0F005AB65E /* TestSuiteReport.swift in Sources */,
 				OBJ_986 /* Group.swift in Sources */,
 				OBJ_987 /* Project.swift in Sources */,
 				OBJ_988 /* ParentRetrievable.swift in Sources */,
 				OBJ_989 /* CoverageRecordController.swift in Sources */,
 				OBJ_990 /* CoverageRouteController.swift in Sources */,
 				OBJ_991 /* GroupRouteController.swift in Sources */,
+				B4F4108A20AFBB59005AB65E /* TestCaseReport.swift in Sources */,
 				B4F4108520AFB02F005AB65E /* TestResultsParseController.swift in Sources */,
 				OBJ_992 /* ProjectRouteController.swift in Sources */,
 				OBJ_993 /* TestResultsRecordController.swift in Sources */,
 				OBJ_994 /* TestResultsRouteController.swift in Sources */,
 				OBJ_995 /* UserRouteController.swift in Sources */,
+				B4F4108E20AFBB63005AB65E /* TestFailureReport.swift in Sources */,
 				OBJ_996 /* boot.swift in Sources */,
 				OBJ_997 /* configure.swift in Sources */,
 				OBJ_998 /* routes.swift in Sources */,

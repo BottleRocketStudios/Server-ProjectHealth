@@ -40,6 +40,10 @@ public func configure(
     migrationConfig.add(model: TargetReport.self, database: .psql)
     migrationConfig.add(model: FileReport.self, database: .psql)
     migrationConfig.add(model: FunctionReport.self, database: .psql)
+    migrationConfig.add(model: TestSuiteReport.self, database: .psql)
+    migrationConfig.add(model: TestCaseReport.self, database: .psql)
+    migrationConfig.add(model: UnitTestReport.self, database: .psql)
+    migrationConfig.add(model: TestFailureReport.self, database: .psql)
     services.register(migrationConfig)
     
     //Configure authentication provisions
