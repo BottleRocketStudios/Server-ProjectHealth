@@ -12,7 +12,6 @@ import Crypto
 import Fluent
 import SWXMLHash
 
-
 class TestResultsRouteController: RouteCollection {
     
     func boot(router: Router) throws {
@@ -28,18 +27,9 @@ private extension TestResultsRouteController {
     
     func addTestResultsHandler(_ request: Request) throws -> HTTPResponseStatus {
         guard let xmlData = request.http.body.data else { throw Abort(.badRequest) }
-        let xml = SWXMLHash.parse(xmlData)
-        let a = xml["testsuites"]["testsuite"].all
-        
-        print("XML")
-        print(a[0].element?.attribute(by: "name")?.text)
-//        for b in a {
-//            print(b)
-//            print(b["name"].element?.text)
-//            print(b["tests"].element?.text)
-//            print(b["failures"].element?.text)
-//        }
-
+        let results = try TestResultsRecordController.parsedTestResults(from: xmlData)
+        print(results)
+       
         return .ok
     }
 }
