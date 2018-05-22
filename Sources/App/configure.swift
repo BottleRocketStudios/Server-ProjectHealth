@@ -26,10 +26,12 @@ public func configure(
         https://medium.com/@martinlasek/tutorial-how-to-use-postgresql-efb62a434cc5 */
     try services.register(FluentPostgreSQLProvider())
     
-    var databaseConfig = DatabasesConfig()
-    let postgreDatabase = PostgreSQLDatabase(config: PostgreSQLDatabaseConfig(hostname: "localhost", port: 5432, username: "willmcginty", database: "projecthealth"))
-    databaseConfig.add(database: postgreDatabase, as: .psql)
-    services.register(databaseConfig)
+    // Configure a database
+    var databases = DatabasesConfig()
+    let databaseConfig = try configuredPostgreSQLDatabaseConfig(with: env)
+    let database = PostgreSQLDatabase(config: databaseConfig)
+    databases.add(database: database, as: .psql)
+    services.register(databases)
     
     //Configure the database migration table
     var migrationConfig = MigrationConfig()
@@ -60,4 +62,15 @@ public func configure(
     middlewareConfig.use(cacheMiddleware)
     
     services.register(middlewareConfig)
+}
+
+func configuredPostgreSQLDatabaseConfig(with env: Environment) throws -> PostgreSQLDatabaseConfig {
+    guard let url = Environment.get("DATABASE_URL") else {
+        return PostgreSQLDatabaseConfig(hostname: "localhost",
+                                            port: 5432,
+                                            username: "willmcginty",
+                                            database: "projecthealth")
+    }
+    
+    return try PostgreSQLDatabaseConfig(url: url)
 }
